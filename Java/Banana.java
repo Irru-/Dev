@@ -5,7 +5,7 @@ public class Banana extends Smoothie {
         }
  
 	public double cost() {
-		return 1.50;
+		return 1.60;
 	}
 	 
 }
