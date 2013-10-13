@@ -1,10 +1,8 @@
-public abstract class Smoothie {
+public interface Smoothie {
  
-	protected String description = "Unknown Smoothie";
+	String description = "Unknown Smoothie";
 	 
-	public String getDescription() {
-		return description;
-	}
+	public String getDescription();
 	 
 	public abstract double cost();
 }

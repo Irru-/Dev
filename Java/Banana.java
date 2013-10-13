@@ -1,12 +1,4 @@
-public class Banana extends Smoothie {
+public interface Banana extends Smoothie {
     
-        public Banana() {
-            description = "Banana";
-        }
- 
-	public double cost() {
-		return 1.70;
-	}
-	 
+       public abstract double cost(); 
 }
- 

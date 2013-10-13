@@ -1,12 +1,6 @@
-public class Mango extends Smoothie {
- 
-        public Mango() {
-            description = "Mango";
-        }
+public interface Mango extends Smoothie {
     
-	public double cost() {
-		return 1.50;
-	}
+	public abstract double cost();
 	 
 }
  
