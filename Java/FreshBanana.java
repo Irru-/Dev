@@ -1,7 +1,7 @@
 public class FreshBanana extends Banana {
 
     public double cost(){
-        return 1.60;
+        return 1.30;
     }
 
     

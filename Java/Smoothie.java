@@ -9,5 +9,7 @@ public abstract class Smoothie {
 	public abstract String getDescription();
 	 
 	public abstract double cost();
+        
+        protected void prepare(){};
 }
  

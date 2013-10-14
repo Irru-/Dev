@@ -9,12 +9,18 @@
  */
 public class StoreSmoothieBar extends SmoothieBar{
     
-    public Smoothie createSmoothie(String s){    
+    public Smoothie createSmoothie(String s){
+        
+        Smoothie smoothie = null;
+        SmoothieIngredientFactory sif = new StoreIngredientFactory();
         
         if(s.equals("Banana")) {            
-            Smoothie drink = new FreshBanana();
-            drink = new Milk(drink);
-            return drink;
+            smoothie = new BananaSmoothie(sif);
+            smoothie = new Milk(smoothie);
+            return smoothie;            
+            //Smoothie drink = sif.createBanana();
+            //drink = new Milk(drink);
+            //return drink;
         }
         if(s.equals("Orange")) {
             Smoothie drink = new FreshOrange();

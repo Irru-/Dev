@@ -1,3 +1,6 @@
+
+import java.text.DecimalFormat;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -29,17 +32,22 @@ public class Order {
         getDescAndPrice(drink3);*/
         
         SmoothieBar store = new StoreSmoothieBar();
+        SmoothieBar car = new CarSmoothieBar();
         
         Smoothie s = store.orderSmoothie("Banana");
+        Smoothie s2 = car.orderSmoothie("Banana");
         
-        System.out.println(s.getDescription());
+        getDescAndPrice(s);
+        getDescAndPrice(s2);
         
         
     }
     
     public static void getDescAndPrice(Smoothie s){
-        String result = s.getDescription();
-        result = result + " $" + s.cost();
+        String result = s.getDescription();        
+        DecimalFormat df = new DecimalFormat("###.00");
+        String price = df.format(s.cost());
+        result = result + ": $" + price;
         System.out.println(result);
     }
 }
