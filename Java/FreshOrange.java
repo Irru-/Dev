@@ -7,7 +7,7 @@
  *
  * @author Nick
  */
-public class FreshOrange implements Orange{
+public class FreshOrange extends Orange{
     
     public double cost(){
         return 1.50;

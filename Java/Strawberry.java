@@ -1,5 +1,4 @@
+public abstract class Strawberry extends Smoothie {
 
-public interface Strawberry extends Smoothie {
-
-    public double cost();
+    public abstract double cost();
 }

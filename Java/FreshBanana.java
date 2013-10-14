@@ -1,4 +1,4 @@
-public class FreshBanana implements Banana {
+public class FreshBanana extends Banana {
 
     public double cost(){
         return 1.60;

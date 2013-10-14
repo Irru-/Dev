@@ -13,7 +13,7 @@ public class Order {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Smoothie drink = new Mango();
+        /*Smoothie drink = new Mango();
         getDescAndPrice(drink);
         
         Smoothie drink2 = new Banana();
@@ -26,7 +26,15 @@ public class Order {
         drink3 = new IceCubes(drink3);
         drink3 = new WhippedCream(drink3);
         drink3 = new Icecream(drink3);
-        getDescAndPrice(drink3);
+        getDescAndPrice(drink3);*/
+        
+        SmoothieBar store = new StoreSmoothieBar();
+        
+        Smoothie s = store.orderSmoothie("Banana");
+        
+        System.out.println(s.getDescription());
+        
+        
     }
     
     public static void getDescAndPrice(Smoothie s){

@@ -1,6 +1,6 @@
-public interface Orange extends Smoothie {
+public abstract class Orange extends Smoothie {
 
-	public double cost();
+	public abstract double cost();
 	 
 }
  

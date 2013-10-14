@@ -1,4 +1,4 @@
-public interface Banana extends Smoothie {
+public abstract class Banana extends Smoothie {
     
        public abstract double cost(); 
 }

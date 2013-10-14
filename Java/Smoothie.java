@@ -1,8 +1,12 @@
-public interface Smoothie {
+public abstract class Smoothie {
  
 	String description = "Unknown Smoothie";
+        Mango mango;
+        Banana banana;
+        Orange orange;
+        Strawberry strawberry;
 	 
-	public String getDescription();
+	public abstract String getDescription();
 	 
 	public abstract double cost();
 }

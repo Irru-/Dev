@@ -7,7 +7,7 @@
  *
  * @author Nick
  */
-public class FreshStrawberry implements Strawberry{
+public class FreshStrawberry extends Strawberry{
     
     public double cost(){
         return 1.70;
