@@ -18,29 +18,6 @@ public class Order {
      */
     public static void main(String[] args) {        
         Scanner s = new Scanner(System.in);
-        /*Smoothie drink = new Mango();
-        getDescAndPrice(drink);
-        
-        Smoothie drink2 = new Banana();
-        drink2 = new Milk(drink2);
-        drink2 = new WhippedCream(drink2);
-        drink2 = new WhippedCream(drink2);
-        getDescAndPrice(drink2);        
-        
-        Smoothie drink3 = new Banana();
-        drink3 = new IceCubes(drink3);
-        drink3 = new WhippedCream(drink3);
-        drink3 = new Icecream(drink3);
-        getDescAndPrice(drink3);*/
-        
-        /*SmoothieBar store = new StoreSmoothieBar();
-        SmoothieBar car = new CarSmoothieBar();
-        
-        Smoothie s = store.orderSmoothie("Banana");
-        Smoothie s2 = car.orderSmoothie("Banana");
-        
-        getDescAndPrice(s);
-        getDescAndPrice(s2);*/
         
         int keuze = 0;
         int ing = -1;
@@ -53,7 +30,7 @@ public class Order {
                     + "in de car wilt bestellen");
             System.out.println("1 - Winkel");
             System.out.println("2 - Car");
-            System.out.println("3 - Exit");
+            System.out.println("0 - Exit");
             System.out.println();
 
             keuze = s.nextInt();
@@ -63,7 +40,7 @@ public class Order {
                 bar = new StoreSmoothieBar();
             if(keuze == 2)
                 bar = new CarSmoothieBar();
-            if(keuze != 1 && keuze != 2)
+            if(keuze == 0)
                 break;
 
                 do{
@@ -73,39 +50,29 @@ public class Order {
                     System.out.println("2 - Mango");
                     System.out.println("3 - Sinaasappel");
                     System.out.println("4 - Aardbei");
+                    System.out.println("0 - Exit");
                     System.out.println();
 
                     ing = s.nextInt();
                     System.out.println();
                     
                     switch (ing) {
-                        case 1: smoothie = bar.orderSmoothie("Banana");
-                                extraSelect();
-                                ext = s.nextInt();
-                                System.out.println();                                
-                                extraAdd(smoothie, ext);                                
+                        case 1: smoothie = bar.orderSmoothie("Banana");                                
+                                smoothie = extraAdd(smoothie);                                
                                 break;
                         case 2: smoothie = bar.orderSmoothie("Mango");
-                                extraSelect();
-                                ext = s.nextInt();
-                                System.out.println(); 
-                                extraAdd(smoothie, ext);
+                                smoothie = extraAdd(smoothie);
                                 break;
                         case 3: smoothie = bar.orderSmoothie("Orange");
-                                extraSelect();
-                                ext = s.nextInt();
-                                System.out.println(); 
-                                extraAdd(smoothie, ext);
+                                smoothie = extraAdd(smoothie);
                                 break;
                         case 4: smoothie = bar.orderSmoothie("Strawberry");
-                                extraSelect();
-                                ext = s.nextInt();
-                                System.out.println(); 
-                                extraAdd(smoothie, ext);
+                                smoothie = extraAdd(smoothie);
                                 break;
                     }
                     
                     getDescAndPrice(smoothie);
+                    System.out.println();
 
                 } while (ing != 0); 
         
@@ -125,26 +92,38 @@ public class Order {
     
     public static void extraSelect()
     {
+        
+    }
+    
+    public static Smoothie extraAdd(Smoothie s)
+    {
+        Scanner sc = new Scanner(System.in);
+        
         System.out.println("Kies welke extra's u in uw smoothie wilt.");
         System.out.println("1 - IJsklontjes");
         System.out.println("2 - Roomijs");
         System.out.println("3 - Melk");
         System.out.println("4 - Slagroom");
+        System.out.println("0 - Exit");
         System.out.println();
-    }
-    
-    public static Smoothie extraAdd(Smoothie s, int k)
-    {
-        switch (k){
-            case 1: s = new IceCubes(s);
-                    break;
-            case 2: s = new Icecream(s);
-                    break;
-            case 3: s = new Milk(s);
-                    break;
-            case 4: s = new WhippedCream(s);
-                    break;
-        }
+        
+        int k = -1;
+        System.out.println();
+        
+        do{
+            k = sc.nextInt();
+            System.out.println();
+            switch (k){
+                case 1: s = new IceCubes(s);
+                        break;
+                case 2: s = new Icecream(s);
+                        break;
+                case 3: s = new Milk(s);
+                        break;
+                case 4: s = new WhippedCream(s);
+                        break;
+            }
+        }while (k != 0);
         
         return s;
     }

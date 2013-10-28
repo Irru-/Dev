@@ -16,26 +16,23 @@ public class StoreSmoothieBar extends SmoothieBar{
         
         if(s.equals("Banana")) {            
             smoothie = new BananaSmoothie(sif);
-            smoothie = new Milk(smoothie);
+            //smoothie = new Milk(smoothie);
             return smoothie;            
-            //Smoothie drink = sif.createBanana();
-            //drink = new Milk(drink);
-            //return drink;
         }
         if(s.equals("Orange")) {
-            Smoothie drink = new FreshOrange();
-            drink = new Milk(drink);
-            return drink;
+            smoothie = new OrangeSmoothie(sif);
+            //drink = new Milk(drink);
+            return smoothie;
         }
         if(s.equals("Strawberry")) {
             Smoothie drink = new FreshStrawberry();
-            drink = new Milk(drink);
+            //drink = new Milk(drink);
             return drink;
         }
         if(s.equals("Mango")) {
-            Smoothie drink = new FreshMango();
-            drink = new Milk(drink);
-            return drink;
+            smoothie = new MangoSmoothie(sif);
+            //drink = new Milk(drink);
+            return smoothie;
         }
         else
             return null;
