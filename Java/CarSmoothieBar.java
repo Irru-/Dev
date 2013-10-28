@@ -10,25 +10,29 @@
 public class CarSmoothieBar extends SmoothieBar{
     
     public Smoothie createSmoothie(String s){
+        
+        Smoothie smoothie = null;
+        SmoothieIngredientFactory sif = new CarIngredientFactory();
+        
         if(s.equals("Banana")) {
-            Smoothie drink = new CannedBanana();
+            smoothie = new BananaSmoothie(sif);
             //drink = new Icecream(drink);
-            return drink;
+            return smoothie;
         }
         if(s.equals("Orange")) {
-            Smoothie drink = new CannedOrange();
+            smoothie = new OrangeSmoothie(sif);
             //drink = new Icecream(drink);
-            return drink;
+            return smoothie;
         }
         if(s.equals("Strawberry")) {
-            Smoothie drink = new CannedStrawberry();
+            smoothie = new StrawberrySmoothie(sif);
             //drink = new Icecream(drink);
-            return drink;
+            return smoothie;
         }
         if(s.equals("Mango")) {
-            Smoothie drink = new CannedMango();
+            smoothie = new MangoSmoothie(sif);
             //drink = new Icecream(drink);
-            return drink;
+            return smoothie;
         }
         else
             return null;

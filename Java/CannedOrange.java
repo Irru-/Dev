@@ -14,7 +14,7 @@ public class CannedOrange extends Orange{
     }
     
     public String getDescription(){
-        return null;
+        return "Canned Orange";
     }
     
 }

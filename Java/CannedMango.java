@@ -14,7 +14,7 @@ public class CannedMango extends Mango{
     }
     
     public String getDescription(){
-        return null;
+        return "Canned Mango";
     }
     
 }

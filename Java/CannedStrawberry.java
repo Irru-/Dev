@@ -14,7 +14,7 @@ public class CannedStrawberry extends Strawberry{
     }
     
     public String getDescription(){
-        return null;
+        return "Canned Strawberry";
     }
     
 }

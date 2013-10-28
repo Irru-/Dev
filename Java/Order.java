@@ -22,6 +22,7 @@ public class Order {
         int keuze = 0;
         int ing = -1;
         int ext = -1;
+        double total = 0;
         
         do{
             SmoothieBar bar = null;
@@ -71,10 +72,17 @@ public class Order {
                                 break;
                     }
                     
-                    getDescAndPrice(smoothie);
-                    System.out.println();
+                    if(ing != 0) {
+                        getDescAndPrice(smoothie);
+                        total = total + smoothie.cost();
+                        System.out.println("De totaalprijs is " + total);                    
+                        System.out.println();
+                    }
+                    
 
-                } while (ing != 0); 
+                } while (ing != 0);                 
+                
+                
         
         } while (keuze != 3);
         
