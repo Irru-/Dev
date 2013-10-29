@@ -1,11 +1,10 @@
-package Bars;
+package Factories;
 
 
-import Factories.CarIngredientFactory;
+import Factories.StoreIngredientFactory;
 import Factories.SmoothieIngredientFactory;
 import Smoothies.Smoothie;
 import Smoothies.OrangeSmoothie;
-import Smoothies.StrawberrySmoothie;
 import Smoothies.MangoSmoothie;
 import Smoothies.BananaSmoothie;
 
@@ -18,31 +17,31 @@ import Smoothies.BananaSmoothie;
  *
  * @author Nick
  */
-public class CarSmoothieBar extends SmoothieBar{
+public class StoreSmoothieBar extends SmoothieBar{
     
     public Smoothie createSmoothie(String s){
         
         Smoothie smoothie = null;
-        SmoothieIngredientFactory sif = new CarIngredientFactory();
+        SmoothieIngredientFactory sif = new StoreIngredientFactory();
         
-        if(s.equals("Banana")) {
+        if(s.equals("Banana")) {            
             smoothie = new BananaSmoothie(sif);
-            //drink = new Icecream(drink);
-            return smoothie;
+            //smoothie = new Milk(smoothie);
+            return smoothie;            
         }
         if(s.equals("Orange")) {
             smoothie = new OrangeSmoothie(sif);
-            //drink = new Icecream(drink);
+            //drink = new Milk(drink);
             return smoothie;
         }
         if(s.equals("Strawberry")) {
-            smoothie = new StrawberrySmoothie(sif);
-            //drink = new Icecream(drink);
+            smoothie = new OrangeSmoothie(sif);
+            //drink = new Milk(drink);
             return smoothie;
         }
         if(s.equals("Mango")) {
             smoothie = new MangoSmoothie(sif);
-            //drink = new Icecream(drink);
+            //drink = new Milk(drink);
             return smoothie;
         }
         else

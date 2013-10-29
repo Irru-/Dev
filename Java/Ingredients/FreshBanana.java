@@ -1,8 +1,5 @@
 package Ingredients;
 
-
-import Ingredients.Banana;
-
 public class FreshBanana extends Banana {
 
     public double cost(){

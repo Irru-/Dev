@@ -19,13 +19,11 @@ public class BananaSmoothie extends Smoothie {
         this.sif = sif;
     }
 
-    @Override
     public String getDescription() {
         banana = sif.createBanana();
         return banana.getDescription();
     }
 
-    @Override
     public double cost() {
         return 1.50;
     }   

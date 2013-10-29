@@ -1,12 +1,11 @@
 package Smoothies;
 
-
-import Ingredients.Strawberry;
+import Ingredients.Banana;
 import Ingredients.Mango;
 import Ingredients.Orange;
-import Ingredients.Banana;
+import Ingredients.Strawberry;
 
-public abstract class Smoothie {
+public class Smoothie {
  
 	String description = "Unknown Smoothie";
         Mango mango;
@@ -14,10 +13,14 @@ public abstract class Smoothie {
         Orange orange;
         Strawberry strawberry;
 	 
-	public abstract String getDescription();
+	public String getDescription()
+        {
+            return null;
+        }
 	 
-	public abstract double cost();
-        
-        protected void prepare(){};
+	public double cost()
+        {
+            return 0;
+        }
 }
  

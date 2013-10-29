@@ -1,6 +1,5 @@
 package Extras;
 
-
 import Smoothies.Smoothie;
 
 public class Milk extends Extras {
