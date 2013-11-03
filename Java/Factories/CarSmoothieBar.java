@@ -12,34 +12,34 @@ import Smoothies.*;
  */
 public class CarSmoothieBar extends SmoothieBar {
 
-    public Smoothie createSmoothie(String s) {
+    public Smoothie createSmoothie(String s, Smoothie sm) {
 
-        Smoothie smoothie = new Smoothie();
+        //Smoothie smoothie = sm;
         SmoothieIngredientFactory sif = new CarIngredientFactory();
 
         if(s.equals("Banana")) {            
             //smoothie = new BananaSmoothie(sif);
             //smoothie = new Milk(smoothie);
-            smoothie.setFruit(sif.createBanana());
-            return smoothie;            
+            sm.setFruit(sif.createBanana());
+            return sm;            
         }
         if(s.equals("Orange")) {
             //smoothie = new OrangeSmoothie(sif);
             //drink = new Milk(drink);
-            smoothie.setFruit(sif.createOrange());
-            return smoothie;
+            sm.setFruit(sif.createOrange());
+            return sm;
         }
         if(s.equals("Strawberry")) {
             //smoothie = new OrangeSmoothie(sif);
             //drink = new Milk(drink);
-            smoothie.setFruit(sif.createStrawberry());
-            return smoothie;
+            sm.setFruit(sif.createStrawberry());
+            return sm;
         }
         if(s.equals("Mango")) {
             //smoothie = new MangoSmoothie(sif);
             //drink = new Milk(drink);
-            smoothie.setFruit(sif.createMango());
-            return smoothie;
+            sm.setFruit(sif.createMango());
+            return sm;
             
         } else {
             return null;

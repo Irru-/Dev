@@ -12,13 +12,13 @@ import Smoothies.Smoothie;
  */
 public abstract class SmoothieBar {
 
-    public Smoothie orderSmoothie(String s) {
+    public Smoothie orderSmoothie(String s, Smoothie sm) {
         Smoothie smoothie;
 
-        smoothie = createSmoothie(s);
+        smoothie = createSmoothie(s, sm);
 
         return smoothie;
     }
 
-    protected abstract Smoothie createSmoothie(String s);
+    protected abstract Smoothie createSmoothie(String s, Smoothie sm);
 }

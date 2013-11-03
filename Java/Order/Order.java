@@ -28,7 +28,7 @@ public class Order {
 
         do {
             SmoothieBar bar = null;
-            Smoothie smoothie = null;
+            Smoothie smoothie = new Smoothie();
             System.out.println("Welkom - Kies of U in de winkel of "
                     + "in de car wilt bestellen");
             System.out.println("1 - Winkel");
@@ -56,7 +56,7 @@ public class Order {
                 System.out.println("2 - Mango");
                 System.out.println("3 - Sinaasappel");
                 System.out.println("4 - Aardbei");
-                System.out.println("0 - Exit");
+                System.out.println("9 - Volgend Menu");
                 System.out.println();
 
                 ing = s.nextInt();
@@ -64,27 +64,25 @@ public class Order {
 
                 switch (ing) {
                     case 1:
-                        smoothie = bar.orderSmoothie("Banana");
-                        smoothie = extraAdd(smoothie);
+                        smoothie = bar.orderSmoothie("Banana", smoothie);
                         break;
                     case 2:
-                        smoothie = bar.orderSmoothie("Mango");
-                        smoothie = extraAdd(smoothie);
+                        smoothie = bar.orderSmoothie("Mango", smoothie);
                         break;
                     case 3:
-                        smoothie = bar.orderSmoothie("Orange");
-                        smoothie = extraAdd(smoothie);
+                        smoothie = bar.orderSmoothie("Orange", smoothie);
                         break;
                     case 4:
-                        smoothie = bar.orderSmoothie("Strawberry");
-                        smoothie = extraAdd(smoothie);
+                        smoothie = bar.orderSmoothie("Strawberry", smoothie);
                         break;
+                    case 9:
+                        smoothie = extraAdd(smoothie);
                 }
 
                 if (ing != 0) {
                     getDescAndPrice(smoothie);
-                    total = total + smoothie.cost();
-                    System.out.println("De totaalprijs is " + total);
+                    //total = total + smoothie.cost();
+                    //System.out.println("De totaalprijs is " + total);
                     System.out.println();
                 }
 
@@ -95,6 +93,17 @@ public class Order {
         } while (keuze != 3);
 
         System.out.println("Tot ziens");
+        
+        /*Smoothie sm = new Smoothie();
+        SmoothieBar b = new StoreSmoothieBar();
+        sm = b.orderSmoothie("Banana", sm);
+        getDescAndPrice(sm);
+        sm = b.orderSmoothie("Orange", sm);
+        getDescAndPrice(sm);
+        sm = b.orderSmoothie("Strawberry", sm);
+        sm = b.orderSmoothie("Mango", sm);
+        getDescAndPrice(sm);*/
+        
 
     }
 
