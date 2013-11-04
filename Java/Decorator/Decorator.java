@@ -6,10 +6,16 @@ public abstract class Decorator extends Beverage{
     
     protected final Smoothie smoothie;    
 	
-    public Decorator (Smoothie s){
-        this.smoothie = s;
-    }    
+    public Decorator (Smoothie smoothie){
+        this.smoothie = smoothie;
+    }
     
-    public abstract String getDescription();
+    public double cost(){
+        return smoothie.cost();
+    }
+    
+    public String getDescription(){
+        return smoothie.getDescription();
+    }
 }
  
