@@ -1,8 +1,8 @@
-package Extras;
+package Decorator;
 
 import Smoothies.Smoothie;
 
-public abstract class Extras extends Smoothie{	 
+public abstract class Decorator extends Smoothie{	 
 	public abstract String getDescription();
         //hello
 }

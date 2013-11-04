@@ -1,6 +1,9 @@
 package Order;
 
-import Extras.*;
+import Decorator.Icecream;
+import Decorator.IceCubes;
+import Decorator.WhippedCream;
+import Decorator.Milk;
 import Factories.*;
 import Smoothies.Smoothie;
 import java.text.DecimalFormat;

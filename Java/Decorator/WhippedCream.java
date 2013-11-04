@@ -1,9 +1,9 @@
-package Extras;
+package Decorator;
 
 
 import Smoothies.Smoothie;
 
-public class WhippedCream extends Extras {
+public class WhippedCream extends Decorator {
  
 	private Smoothie smoothie;
         

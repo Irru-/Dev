@@ -1,9 +1,8 @@
-package Extras;
-
+package Decorator;
 
 import Smoothies.Smoothie;
 
-public class IceCubes extends Extras {
+public class IceCubes extends Decorator {
  
 	private Smoothie smoothie;
         
@@ -18,6 +17,8 @@ public class IceCubes extends Extras {
 	public String getDescription() {
 		return smoothie.getDescription() + ", Ice Cubes";
 	}
+        
+        
 	 
 }
  

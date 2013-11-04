@@ -1,21 +1,22 @@
-package Extras;
+package Decorator;
+
 
 import Smoothies.Smoothie;
 
-public class Milk extends Extras {
+public class Icecream extends Decorator {
  
 	private Smoothie smoothie;
         
-        public Milk(Smoothie smoothie){
+        public Icecream(Smoothie smoothie){
             this.smoothie = smoothie;
         }
 	 
 	public double cost() {
-		return .30 + smoothie.cost();
+		return .20 + smoothie.cost();
 	}
 	 
 	public String getDescription() {
-		return smoothie.getDescription() + ", Milk";
+		return smoothie.getDescription() + ", Icecream";
 	}
 	 
 }
