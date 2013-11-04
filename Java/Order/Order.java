@@ -1,9 +1,6 @@
 package Order;
 
-import Decorator.Icecream;
-import Decorator.IceCubes;
-import Decorator.WhippedCream;
-import Decorator.Milk;
+import Decorator.*;
 import Factories.*;
 import Smoothies.Smoothie;
 import java.text.DecimalFormat;
@@ -79,7 +76,7 @@ public class Order {
                         smoothie = bar.orderSmoothie("Strawberry", smoothie);
                         break;
                     case 9:
-                        smoothie = extraAdd(smoothie);
+                        //smoothie = extraAdd(smoothie);
                 }
 
                 if (ing != 0) {
@@ -120,7 +117,6 @@ public class Order {
 
     public static Smoothie extraAdd(Smoothie s) {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Kies welke extra's u in uw smoothie wilt.");
         System.out.println("1 - IJsklontjes");
         System.out.println("2 - Roomijs");
@@ -151,6 +147,6 @@ public class Order {
             }
         } while (k != 0);
 
-        return s;
+        return null;
     }
 }

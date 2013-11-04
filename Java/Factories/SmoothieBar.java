@@ -1,6 +1,7 @@
 package Factories;
 
 import Smoothies.Smoothie;
+import Decorator.*;
 
 /*
  * To change this template, choose Tools | Templates

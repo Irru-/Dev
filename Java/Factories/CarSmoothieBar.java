@@ -1,5 +1,6 @@
 package Factories;
 
+import Decorator.*;
 import Smoothies.*;
 
 /*

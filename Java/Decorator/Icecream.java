@@ -5,10 +5,10 @@ import Smoothies.Smoothie;
 
 public class Icecream extends Decorator {
  
-	private Smoothie smoothie;
+	//private Beverage smoothie;
         
         public Icecream(Smoothie smoothie){
-            this.smoothie = smoothie;
+            super(smoothie);
         }
 	 
 	public double cost() {

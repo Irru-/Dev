@@ -4,8 +4,9 @@ import Ingredients.Banana;
 import Ingredients.Mango;
 import Ingredients.Orange;
 import Ingredients.Strawberry;
+import Decorator.*;
 
-public class Smoothie {
+public class Smoothie extends Beverage{
  
 	String desc = "";
         Mango mango;

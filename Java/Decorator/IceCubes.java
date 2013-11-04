@@ -4,11 +4,13 @@ import Smoothies.Smoothie;
 
 public class IceCubes extends Decorator {
  
-	private Smoothie smoothie;
+	private Beverage smoothie;
         
         public IceCubes(Smoothie smoothie) {
-                this.smoothie = smoothie;
+                super(smoothie);
         }
+
+    
 	 
 	public double cost() {
 		return .15 + smoothie.cost();
