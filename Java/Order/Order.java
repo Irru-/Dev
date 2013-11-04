@@ -96,29 +96,7 @@ public class Order {
 
         } while (keuze != 3);
 
-        System.out.println("Tot ziens");
-        
-        /*Smoothie sm = new Smoothie();
-        SmoothieBar b = new StoreSmoothieBar();
-        sm = b.orderSmoothie("Banana", sm);
-        getDescAndPrice(sm);
-        sm = b.orderSmoothie("Orange", sm);
-        getDescAndPrice(sm);
-        sm = b.orderSmoothie("Strawberry", sm);
-        sm = b.orderSmoothie("Mango", sm);
-        getDescAndPrice(sm);
-        
-        
-        /***************************
-        
-        Beverage s = new Smoothie();
-        SmoothieBar b = new StoreSmoothieBar();
-        s = b.orderSmoothie("Banana", (Smoothie) s);
-        s = new Milk((Smoothie) s);
-        System.out.println(s.getDescription());
-        
-        * *****/
-        
+        System.out.println("Tot ziens");        
 
     }
 
