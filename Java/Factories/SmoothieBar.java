@@ -13,13 +13,13 @@ import Decorator.*;
  */
 public abstract class SmoothieBar {
 
-    public Smoothie orderSmoothie(String s, Smoothie sm) {
+    public Smoothie orderSmoothie(String s, Beverage sm) {
         Smoothie smoothie;
 
-        smoothie = createSmoothie(s, sm);
+        smoothie = createDrink(s, sm);
 
         return smoothie;
     }
 
-    protected abstract Smoothie createSmoothie(String s, Smoothie sm);
+    protected abstract Smoothie createDrink(String s, Beverage sm);
 }

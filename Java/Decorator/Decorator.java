@@ -1,12 +1,10 @@
 package Decorator;
 
-import Smoothies.Smoothie;
-
 public abstract class Decorator extends Beverage{
     
-    protected final Smoothie smoothie;    
+    protected final Beverage smoothie;    
 	
-    public Decorator (Smoothie smoothie){
+    public Decorator (Beverage smoothie){
         this.smoothie = smoothie;
     }
     

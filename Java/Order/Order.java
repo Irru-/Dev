@@ -20,14 +20,14 @@ public class Order {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        
-        
+
+
+
+
         Scanner s = new Scanner(System.in);
 
-        int keuze = 0;
-        int ing = -1;
+        int keuze;
+        int ing;
         double total = 0;
 
         do {
@@ -54,7 +54,8 @@ public class Order {
             }
 
             do {
-
+                if(smoothie instanceof Decorator)
+                    smoothie = new Smoothie();
                 System.out.println("Kies wat voor smoothie u wilt bestellen");
                 System.out.println("1 - Banaan");
                 System.out.println("2 - Mango");
@@ -68,16 +69,16 @@ public class Order {
 
                 switch (ing) {
                     case 1:
-                        smoothie = bar.orderSmoothie("Banana", (Smoothie) smoothie);
+                        smoothie = bar.orderSmoothie("Banana", smoothie);
                         break;
                     case 2:
-                        smoothie = bar.orderSmoothie("Mango", (Smoothie) smoothie);
+                        smoothie = bar.orderSmoothie("Mango", smoothie);
                         break;
                     case 3:
-                        smoothie = bar.orderSmoothie("Orange", (Smoothie) smoothie);
+                        smoothie = bar.orderSmoothie("Orange", smoothie);
                         break;
                     case 4:
-                        smoothie = bar.orderSmoothie("Strawberry", (Smoothie) smoothie);
+                        smoothie = bar.orderSmoothie("Strawberry", smoothie);
                         break;
                     case 9:
                         smoothie = extraAdd(smoothie);
@@ -90,18 +91,17 @@ public class Order {
                     System.out.println();
                 }
 
-
             } while (ing != 0);
-
 
         } while (keuze != 3);
 
-        System.out.println("Tot ziens");        
+        System.out.println("Tot ziens");
 
     }
 
     public static void getDescAndPrice(Beverage s) {
-        
+
+        System.out.println(s);
         String result = s.getDescription();
         DecimalFormat df = new DecimalFormat("###.00");
         String price = df.format(s.cost());
@@ -119,23 +119,23 @@ public class Order {
         System.out.println("0 - Exit");
         System.out.println();
 
-        int k = -1;
+        int k;
         System.out.println();
         do {
             k = sc.nextInt();
             System.out.println();
             switch (k) {
                 case 1:
-                    s = new IceCubes((Smoothie) s);
+                    s = new IceCubes(s);
                     break;
                 case 2:
-                    s = new Icecream((Smoothie) s);
+                    s = new Icecream(s);
                     break;
                 case 3:
-                    s = new Milk((Smoothie) s);
+                    s = new Milk(s);
                     break;
                 case 4:
-                    s = new WhippedCream((Smoothie) s);
+                    s = new WhippedCream(s);
                     break;
             }
         } while (k != 0);

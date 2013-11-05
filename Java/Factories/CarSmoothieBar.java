@@ -13,10 +13,18 @@ import Smoothies.*;
  */
 public class CarSmoothieBar extends SmoothieBar {
 
-    public Smoothie createSmoothie(String s, Smoothie sm) {
+    public Smoothie createDrink(String s, Beverage sm) {
         
         SmoothieIngredientFactory sif = new CarIngredientFactory();
-
+        
+        if(sm instanceof Smoothie)
+            return createSmoothie(s, (Smoothie) sm, sif);
+        else
+            return null;
+    }
+    
+    public Smoothie createSmoothie(String s, Smoothie sm, 
+            SmoothieIngredientFactory sif) {
         if(s.equals("Banana")) {
             sm.setFruit(sif.createBanana());
             return sm;            
