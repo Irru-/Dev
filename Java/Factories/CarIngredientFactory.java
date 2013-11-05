@@ -10,7 +10,7 @@ import Ingredients.*;
  *
  * @author Nick
  */
-public class CarIngredientFactory implements SmoothieIngredientFactory{
+public class CarIngredientFactory implements BeverageIngredientFactory{
     
     public Banana createBanana()
     {

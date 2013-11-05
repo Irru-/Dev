@@ -15,7 +15,7 @@ import Ingredients.*;
  *
  * @author Nick
  */
-public class StoreIngredientFactory implements SmoothieIngredientFactory {
+public class StoreIngredientFactory implements BeverageIngredientFactory {
     
     public Banana createBanana()
     {

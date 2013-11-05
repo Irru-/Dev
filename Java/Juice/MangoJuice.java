@@ -13,9 +13,9 @@ import Factories.*;
  */
 public class MangoJuice extends Juice {
     
-    SmoothieIngredientFactory sif;
+    BeverageIngredientFactory sif;
     
-    public MangoJuice(SmoothieIngredientFactory sif)
+    public MangoJuice(BeverageIngredientFactory sif)
     {
         this.sif = sif;
     }

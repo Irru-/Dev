@@ -15,7 +15,7 @@ import Ingredients.Banana;
  *
  * @author Nick
  */
-public interface SmoothieIngredientFactory {
+public interface BeverageIngredientFactory {
     
     public Banana createBanana();
     public Mango createMango();

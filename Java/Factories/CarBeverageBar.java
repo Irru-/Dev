@@ -16,7 +16,7 @@ public class CarBeverageBar extends BeverageBar {
 
     public Beverage createDrink(String s, Beverage sm) {
         
-        SmoothieIngredientFactory sif = new CarIngredientFactory();
+        BeverageIngredientFactory sif = new CarIngredientFactory();
         
         if(sm instanceof Smoothie)
             return createSmoothie(s, (Smoothie) sm, sif);
@@ -27,7 +27,7 @@ public class CarBeverageBar extends BeverageBar {
     }
     
     public Smoothie createSmoothie(String s, Smoothie sm, 
-            SmoothieIngredientFactory sif) {
+            BeverageIngredientFactory sif) {
         if(s.equals("Banana")) {
             sm.setFruit(sif.createBanana());
             return sm;            
@@ -50,7 +50,7 @@ public class CarBeverageBar extends BeverageBar {
     }
     
     public Juice createJuice(String s, Juice j,
-            SmoothieIngredientFactory sif){
+            BeverageIngredientFactory sif){
         if(s.equals("Banana")) {
             j.setFruit(sif.createBanana());
             return j;            

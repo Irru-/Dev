@@ -2,10 +2,10 @@ package Order;
 
 import Decorator.*;
 import Factories.*;
+import Juice.*;
 import Smoothies.Smoothie;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-import Juice.*;
 
 /*
  * To change this template, choose Tools | Templates
@@ -106,8 +106,8 @@ public class Order {
 
                 if (ing != 0) {
                     getDescAndPrice(drink);
-                    //total = total + drink.cost();
-                    //System.out.println("De totaalprijs is " + total);
+                    total = total + drink.cost();
+                    System.out.println("De totaalprijs is " + total);
                     System.out.println();
                 }
 
