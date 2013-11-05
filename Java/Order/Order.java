@@ -5,6 +5,7 @@ import Factories.*;
 import Smoothies.Smoothie;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import Juice.*;
 
 /*
  * To change this template, choose Tools | Templates
@@ -31,8 +32,8 @@ public class Order {
         double total = 0;
 
         do {
-            SmoothieBar bar = null;
-            Beverage smoothie = new Smoothie();
+            BeverageBar bar = null;
+            Beverage drink = null;
             System.out.println("Welkom - Kies of U in de winkel of "
                     + "in de car wilt bestellen");
             System.out.println("1 - Winkel");
@@ -44,19 +45,38 @@ public class Order {
             System.out.println();
 
             if (keuze == 1) {
-                bar = new StoreSmoothieBar();
+                bar = new StoreBeverageBar();
             }
             if (keuze == 2) {
-                bar = new CarSmoothieBar();
+                bar = new CarBeverageBar();
             }
             if (keuze == 0) {
                 break;
             }
+            
+            System.out.println("Welkom - Kies of U een smoothie of"
+                    + " een drankje wil bestellen.");
+            System.out.println("1 - Smoothie");
+            System.out.println("2 - Juice");
+            System.out.println("0 - Exit");
+            System.out.println();
+
+            int type = s.nextInt();
+            System.out.println();
+
+            if (type == 1) {
+                drink = new Smoothie();
+            }
+            if (type == 2) {
+                drink = new Juice();
+            }
 
             do {
-                if(smoothie instanceof Decorator)
-                    smoothie = new Smoothie();
-                System.out.println("Kies wat voor smoothie u wilt bestellen");
+                if(drink instanceof Decorator && type == 1)
+                    drink = new Smoothie();
+                if(drink instanceof Decorator && type == 2)
+                    drink = new Juice();
+                System.out.println("Kies wat voor drink u wilt bestellen");
                 System.out.println("1 - Banaan");
                 System.out.println("2 - Mango");
                 System.out.println("3 - Sinaasappel");
@@ -69,24 +89,24 @@ public class Order {
 
                 switch (ing) {
                     case 1:
-                        smoothie = bar.orderSmoothie("Banana", smoothie);
+                        drink = bar.orderSmoothie("Banana", drink);
                         break;
                     case 2:
-                        smoothie = bar.orderSmoothie("Mango", smoothie);
+                        drink = bar.orderSmoothie("Mango", drink);
                         break;
                     case 3:
-                        smoothie = bar.orderSmoothie("Orange", smoothie);
+                        drink = bar.orderSmoothie("Orange", drink);
                         break;
                     case 4:
-                        smoothie = bar.orderSmoothie("Strawberry", smoothie);
+                        drink = bar.orderSmoothie("Strawberry", drink);
                         break;
                     case 9:
-                        smoothie = extraAdd(smoothie);
+                        drink = extraAdd(drink);
                 }
 
                 if (ing != 0) {
-                    getDescAndPrice(smoothie);
-                    //total = total + smoothie.cost();
+                    getDescAndPrice(drink);
+                    //total = total + drink.cost();
                     //System.out.println("De totaalprijs is " + total);
                     System.out.println();
                 }
@@ -100,7 +120,6 @@ public class Order {
     }
 
     public static void getDescAndPrice(Beverage s) {
-
         System.out.println(s);
         String result = s.getDescription();
         DecimalFormat df = new DecimalFormat("###.00");
@@ -111,7 +130,7 @@ public class Order {
 
     public static Beverage extraAdd(Beverage s) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Kies welke extra's u in uw smoothie wilt.");
+        System.out.println("Kies welke extra's u in uw drink wilt.");
         System.out.println("1 - IJsklontjes");
         System.out.println("2 - Roomijs");
         System.out.println("3 - Melk");

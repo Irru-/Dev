@@ -11,7 +11,7 @@ import Smoothies.*;
  *
  * @author Nick
  */
-public class CarSmoothieBar extends SmoothieBar {
+public class CarBeverageBar extends BeverageBar {
 
     public Smoothie createDrink(String s, Beverage sm) {
         

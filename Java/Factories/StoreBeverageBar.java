@@ -2,6 +2,7 @@ package Factories;
 
 import Decorator.*;
 import Smoothies.*;
+import Juice.*;
 
 /*
  * To change this template, choose Tools | Templates
@@ -12,7 +13,9 @@ import Smoothies.*;
  *
  * @author Nick
  */
-public class StoreSmoothieBar extends SmoothieBar{
+public class StoreBeverageBar extends BeverageBar{
+    
+    ///HIIEEEEEEEER
     
     public Smoothie createDrink(String s, Beverage sm){
         
@@ -20,6 +23,8 @@ public class StoreSmoothieBar extends SmoothieBar{
         
         if(sm instanceof Smoothie)
             return createSmoothie(s, (Smoothie) sm, sif);
+        if(sm instanceof Juice)
+            return createJuice(s, (Juice) sm, sif);
         else
             return null;
           
@@ -42,6 +47,29 @@ public class StoreSmoothieBar extends SmoothieBar{
         if(s.equals("Mango")) {
             sm.setFruit(sif.createMango());
             return sm;
+            
+        } else {
+            return null;
+        }
+    }
+    
+    public Juice createJuice(String s, Juice j,
+            SmoothieIngredientFactory sif){
+        if(s.equals("Banana")) {
+            j.setFruit(sif.createBanana());
+            return j;            
+        }
+        if(s.equals("Orange")) {
+            j.setFruit(sif.createOrange());
+            return j;
+        }
+        if(s.equals("Strawberry")) {
+            j.setFruit(sif.createStrawberry());
+            return j;
+        }
+        if(s.equals("Mango")) {
+            j.setFruit(sif.createMango());
+            return j;
             
         } else {
             return null;

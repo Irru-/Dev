@@ -11,7 +11,7 @@ import Decorator.*;
  *
  * @author Nick
  */
-public abstract class SmoothieBar {
+public abstract class BeverageBar {
 
     public Smoothie orderSmoothie(String s, Beverage sm) {
         Smoothie smoothie;
