@@ -1,14 +1,21 @@
-package Smoothies;
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Juice;
+import Decorator.*;
 import Ingredients.Banana;
 import Ingredients.Mango;
 import Ingredients.Orange;
 import Ingredients.Strawberry;
-import Decorator.*;
 
-public class Smoothie extends Beverage{
- 
-	String desc = "";
+/**
+ *
+ * @author Nick
+ */
+public class Juice extends Beverage{
+    
+    String desc = "";
         Mango mango;
         Banana banana;
         Orange orange;
@@ -25,38 +32,38 @@ public class Smoothie extends Beverage{
             return cost;
         }
         
-        public void setFruit(Beverage s)
+        public void setFruit(Beverage j)
         {
-            if(s instanceof Banana)
+            if(j instanceof Banana)
             {
-                banana = (Banana) s;
+                banana = (Banana) j;
                 if(!desc.matches(""))
                     desc = desc + ", " + banana.getDescription();
                 if(desc.matches(""))
                     desc = banana.getDescription();
                 cost = cost + banana.cost();
             }
-            if(s instanceof Orange)
+            if(j instanceof Orange)
             {
-                orange = (Orange) s;
+                orange = (Orange) j;
                 if(!desc.matches(""))
                     desc = desc + ", " + orange.getDescription();
                 if(desc.matches(""))
                     desc = orange.getDescription();
                 cost = cost + orange.cost();
             }
-            if(s instanceof Strawberry)
+            if(j instanceof Strawberry)
             {
-                strawberry = (Strawberry) s;
+                strawberry = (Strawberry) j;
                 if(!desc.matches(""))
                     desc = desc + ", " + strawberry.getDescription();
                 if(desc.matches(""))
                     desc = strawberry.getDescription();
                 cost = cost + strawberry.cost();
             }
-            if(s instanceof Mango)
+            if(j instanceof Mango)
             {
-                mango = (Mango) s;
+                mango = (Mango) j;
                 if(!desc.matches(""))
                     desc = desc + ", " + mango.getDescription();
                 if(desc.matches(""))
@@ -64,5 +71,5 @@ public class Smoothie extends Beverage{
                 cost = cost + mango.cost();
             }
         }
+    
 }
- 
