@@ -17,7 +17,7 @@ public class StoreBeverageBar extends BeverageBar{
     
     ///HIIEEEEEEEER
     
-    public Smoothie createDrink(String s, Beverage sm){
+    public Beverage createDrink(String s, Beverage sm){
         
         SmoothieIngredientFactory sif = new StoreIngredientFactory();
         

@@ -1,6 +1,7 @@
 package Factories;
 
 import Decorator.*;
+import Juice.*;
 import Smoothies.*;
 
 /*
@@ -13,12 +14,14 @@ import Smoothies.*;
  */
 public class CarBeverageBar extends BeverageBar {
 
-    public Smoothie createDrink(String s, Beverage sm) {
+    public Beverage createDrink(String s, Beverage sm) {
         
         SmoothieIngredientFactory sif = new CarIngredientFactory();
         
         if(sm instanceof Smoothie)
             return createSmoothie(s, (Smoothie) sm, sif);
+        if(sm instanceof Juice)
+            return createJuice(s, (Juice) sm, sif);
         else
             return null;
     }
@@ -40,6 +43,29 @@ public class CarBeverageBar extends BeverageBar {
         if(s.equals("Mango")) {
             sm.setFruit(sif.createMango());
             return sm;
+            
+        } else {
+            return null;
+        }
+    }
+    
+    public Juice createJuice(String s, Juice j,
+            SmoothieIngredientFactory sif){
+        if(s.equals("Banana")) {
+            j.setFruit(sif.createBanana());
+            return j;            
+        }
+        if(s.equals("Orange")) {
+            j.setFruit(sif.createOrange());
+            return j;
+        }
+        if(s.equals("Strawberry")) {
+            j.setFruit(sif.createStrawberry());
+            return j;
+        }
+        if(s.equals("Mango")) {
+            j.setFruit(sif.createMango());
+            return j;
             
         } else {
             return null;
