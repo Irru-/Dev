@@ -12,6 +12,6 @@ package Storage;
  */
 public interface Observer {
     
-    public void update(int b, int m, int o, int s);
+    public void update(int i);
     
 }

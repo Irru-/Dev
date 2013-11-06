@@ -20,13 +20,9 @@ public class BananaWarehouse implements Observer{
         stock.registerObserver(this);
     }
     
-    public void update(int b, int m, int o, int s) {
+    public void update(int i) {
         Stock st = (Stock) stock;
-        
-        if(b == 0)
-            st.addFruit(5,0,0,0);
-        if(b > 0 && b < 3)
-            st.addFruit(3,0,0,0);
+        st.addBanana(i);
     }
     
 }

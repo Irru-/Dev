@@ -49,7 +49,7 @@ public class Order {
             }
             if (keuze == 2) {
                 bar = new CarBeverageBar();
-                stock = new Stock(2);
+                stock = new Stock(3);
             }
             if (keuze == 0) {
                 break;
@@ -110,10 +110,10 @@ public class Order {
                         drink = extraAdd(drink);
                 }
                 
-                if(stock.getFruit("banana") > 3)
-                    stock.removeObserver(bw);
-                if(stock.getFruit("banana") <= 3)
-                    stock.registerObserver(bw);
+                addOrRemoveObservers("banana", stock, bw);
+                addOrRemoveObservers("mango", stock, mw);
+                addOrRemoveObservers("orange", stock, ow);
+                addOrRemoveObservers("strawberry", stock, sw);
                 
 
                 if (ing != 0) {
@@ -129,6 +129,14 @@ public class Order {
 
         System.out.println("Tot ziens");
 
+    }
+    
+    public static void addOrRemoveObservers(String s, Stock st, 
+            Observer o) {
+        if(st.getFruit(s) > 2)
+            st.removeObserver(o);
+        if(st.getFruit(s) <= 2 && !st.returnList().contains(o))
+            st.registerObserver(o);
     }
 
     public static void getDescAndPrice(Beverage s) {
@@ -189,7 +197,7 @@ public class Order {
             System.out.println(st.banana + "," + st.mango + "," + st.orange
                     + "," + st.strawberry);
             Thread.sleep(500);
-            st.notifyObservers();
+            st.restock();
             System.out.println("Het ingredient is weer op voorraad.");
             System.out.println(st.banana + "," + st.mango + "," + st.orange
                     + "," + st.strawberry);

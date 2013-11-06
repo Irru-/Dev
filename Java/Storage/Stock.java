@@ -26,6 +26,10 @@ public class Stock implements Subject{
         addFruit(i,i,i,i);
     }
     
+    public ArrayList returnList(){
+        return observers;
+    }
+    
     public void useFruit(String s)
     {
         s = s.toLowerCase();
@@ -59,7 +63,23 @@ public class Stock implements Subject{
         strawberry += s;
         orange += o;
     }
+    
+    public void addBanana(int i){
+        banana += i;
+    }
+    
+    public void addMango(int i){
+        mango += i;
+    }
 
+    public void addOrange(int i){
+        orange += i;
+    }
+    
+    public void addStrawberry(int i){
+        strawberry += i;
+    }
+    
     public void registerObserver(Observer o) {
         observers.add(o);
     }
@@ -73,7 +93,11 @@ public class Stock implements Subject{
     public void notifyObservers() {
         for(int i = 0; i < observers.size(); i ++){
             Observer o = (Observer) observers.get(i);
-            o.update(banana, mango, orange, strawberry);
+            o.update(3);
         }
+    }
+    
+    public void restock(){
+        notifyObservers();
     }
 }

@@ -12,7 +12,6 @@ package Storage;
  */
 public class StrawberryWarehouse implements Observer{
     
-    private int i;
     private Subject stock;
     
     public StrawberryWarehouse(Subject stock){
@@ -20,13 +19,9 @@ public class StrawberryWarehouse implements Observer{
         stock.registerObserver(this);
     }
     
-    public void update(int b, int m, int o, int s) {
+    public void update(int i) {
         Stock st = (Stock) stock;
-        
-        if(s == 0)
-            st.addFruit(0,0,0,5);
-        if(s > 0 && s < 3)
-            st.addFruit(0,0,0,3);
+        st.addStrawberry(i);
         
     }
     
