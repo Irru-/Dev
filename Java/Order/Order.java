@@ -4,6 +4,7 @@ import Decorator.*;
 import Factories.*;
 import Juice.*;
 import Smoothies.Smoothie;
+import Storage.*;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -20,11 +21,8 @@ public class Order {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-
-
-
-
+    public static void main(String[] args) throws InterruptedException {
+        
         Scanner s = new Scanner(System.in);
 
         int keuze;
@@ -34,6 +32,7 @@ public class Order {
         do {
             BeverageBar bar = null;
             Beverage drink = null;
+            Stock stock = null;
             System.out.println("Welkom - Kies of U in de winkel of "
                     + "in de car wilt bestellen");
             System.out.println("1 - Winkel");
@@ -46,13 +45,20 @@ public class Order {
 
             if (keuze == 1) {
                 bar = new StoreBeverageBar();
+                stock = new Stock(30);
             }
             if (keuze == 2) {
                 bar = new CarBeverageBar();
+                stock = new Stock(2);
             }
             if (keuze == 0) {
                 break;
             }
+            
+            BananaWarehouse bw = new BananaWarehouse(stock);
+            OrangeWarehouse ow = new OrangeWarehouse(stock);
+            MangoWarehouse mw = new MangoWarehouse(stock);
+            StrawberryWarehouse sw = new StrawberryWarehouse(stock);
             
             System.out.println("Welkom - Kies of U een smoothie of"
                     + " een drankje wil bestellen.");
@@ -89,25 +95,31 @@ public class Order {
 
                 switch (ing) {
                     case 1:
-                        drink = bar.orderSmoothie("Banana", drink);
+                        drink = checkStock(stock, "Banana", bar, drink);
                         break;
                     case 2:
-                        drink = bar.orderSmoothie("Mango", drink);
+                        drink = checkStock(stock, "Mango", bar, drink);
                         break;
                     case 3:
-                        drink = bar.orderSmoothie("Orange", drink);
+                        drink = checkStock(stock, "Orange", bar, drink);
                         break;
                     case 4:
-                        drink = bar.orderSmoothie("Strawberry", drink);
+                        drink = checkStock(stock, "Strawberry", bar, drink);
                         break;
                     case 9:
                         drink = extraAdd(drink);
                 }
+                
+                if(stock.getFruit("banana") > 3)
+                    stock.removeObserver(bw);
+                if(stock.getFruit("banana") <= 3)
+                    stock.registerObserver(bw);
+                
 
                 if (ing != 0) {
                     getDescAndPrice(drink);
-                    total = total + drink.cost();
-                    System.out.println("De totaalprijs is " + total);
+                    //total = total + drink.cost();
+                    //System.out.println("De totaalprijs is " + total);
                     System.out.println();
                 }
 
@@ -120,7 +132,6 @@ public class Order {
     }
 
     public static void getDescAndPrice(Beverage s) {
-        System.out.println(s);
         String result = s.getDescription();
         DecimalFormat df = new DecimalFormat("###.00");
         String price = df.format(s.cost());
@@ -160,5 +171,30 @@ public class Order {
         } while (k != 0);
 
         return s;
+    }
+    
+    public static Beverage checkStock(Stock st, String s, BeverageBar bb,
+            Beverage b) throws InterruptedException {
+        
+        if(st.getFruit(s) > 0){           
+            b = bb.orderSmoothie(s, b);
+            st.useFruit(s);
+            System.out.println(st.banana + "," + st.mango + "," + st.orange
+                    + "," + st.strawberry);
+            return b;
+        }
+        else{
+            System.out.println("Helaas is het door u geselecteerde ingredient"
+            + " niet meer op voorraad. Wacht aub 5 seconden.");
+            System.out.println(st.banana + "," + st.mango + "," + st.orange
+                    + "," + st.strawberry);
+            Thread.sleep(500);
+            st.notifyObservers();
+            System.out.println("Het ingredient is weer op voorraad.");
+            System.out.println(st.banana + "," + st.mango + "," + st.orange
+                    + "," + st.strawberry);
+            return b;
+        }
+            
     }
 }
